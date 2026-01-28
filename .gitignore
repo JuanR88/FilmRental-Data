@@ -1,6 +1,4 @@
 data/.ipynb_checkpoints/
-notebooks/.ipynb_checkpoints/
-notebooks/__pycache__/
 conf/.env
 src/.ipynb_checkpoints/
 src/__pycache__/
