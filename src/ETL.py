@@ -1,9 +1,8 @@
-
 import os
 import requests
 import pandas as pd
 from dotenv import load_dotenv
-from datetime import date, timedelta
+from datetime import date
 
 #Definimos variables ( constantes )
 #----------------------------------
@@ -84,13 +83,14 @@ def obtener_peliculas_por_genero(api_key: str, id_genero: int, limite: int):
     #------------------------------------
     
     while len(peliculas) < limite:
+        
         datos = obtener_pagina_descubrir(api_key, id_genero, pagina)
         resultados = datos.get("results", [])
 
-
+        # Si funciona la API se detiene 
         if not resultados:
             break
-
+        # Peliculas pag
         for pelicula in resultados:
             id_pelicula = pelicula.get("id")
 
@@ -101,7 +101,7 @@ def obtener_peliculas_por_genero(api_key: str, id_genero: int, limite: int):
             ids_vistos.add(id_pelicula)
             peliculas.append(pelicula)
 
-            # Se detiene cuando se alcanza el numero deseado
+            # Se detiene cuando se alcanza el limite
             if len(peliculas) >= limite:
                 # Debug: pinta id peli y numero de pelis se descargo
                 #------------------------------------
@@ -145,7 +145,7 @@ def construir_peliculas_desde_api(api_key: str):
         if len(peliculas_genero) < TOP:
             print(f"De: {nombre_genero} tan solo devolvio {len(peliculas_genero)} películas no llega a {TOP} que has marcado")
 
-        #
+        # Creo el dataframe por cada peli / fila
         for pelicula in peliculas_genero:
             filas.append({
                 "genre_id": id_genero,
@@ -185,18 +185,22 @@ def obtener_peliculas():
         return construir_peliculas_desde_api(api_key)
 
     if MODO == "CSV":
+        # Comprueba si existe el archivo
         if os.path.exists(ruta_peliculas):
+            # Si existe lee y termina
             return pd.read_csv(ruta_peliculas)
-
+    
         print("PELICULAS NO EXITE, SE CREA DESDE LA API")
-
+        
+        # Carga la API KEY
         ruta_env = "../conf/.env"
         load_dotenv(ruta_env)
         api_key = os.getenv("TMDB_API_KEY")
-
+        
+        # API KEY bad, ValueError
         if not api_key:
             raise ValueError("COMPRUEBA QUE LA API KEY ESTA EN ../conf/.env")
-
+        # Descarga las pelis
         df = construir_peliculas_desde_api(api_key)
 
         os.makedirs(ruta_base, exist_ok=True)
