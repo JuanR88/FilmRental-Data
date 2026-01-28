@@ -17,10 +17,9 @@ FilmRental-Data/
 │   ├── peliculas.csv   # Descarga si deseas
 │   └── alquileres.csv
 │
-├── notebooks/
-│   └── questions.ipynb
 │
 ├── src/
+│   ├── questions.ipynb
 │   └── ETL.py
 │
 └── README.md               
@@ -75,7 +74,7 @@ El objetivo es construir un proceso **ETL automatizado** para un videoclub, perm
 3. Ejecutar el script ETL desde consola de JUPYTER LAB:
 
 ```bash
-python notebooks/ETL.py
+python src/ETL.py
 ```
 
 ---
