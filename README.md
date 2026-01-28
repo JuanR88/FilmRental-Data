@@ -11,14 +11,17 @@ FilmRental-Data/
 │
 ├── conf/
 │   └── Guide.env
+│
 ├── data/
 │   ├── clientes.csv
 │   ├── peliculas.csv   # Descarga si deseas
 │   └── alquileres.csv
 │
 ├── notebooks/
-│   ├── ETL.py
 │   └── questions.ipynb
+│
+├── src/
+│   └── ETL.py
 │
 └── README.md               
 ```
