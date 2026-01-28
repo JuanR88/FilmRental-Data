@@ -105,8 +105,7 @@ El notebooks incluido permite:
 
 ---
 
-## 👨‍💻 Autor
+## Autor
 
-Proyecto creado para fines de aprendizaje.
-
+Juan Rafael Rodríguez Gómez
 
