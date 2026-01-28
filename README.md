@@ -83,8 +83,9 @@ python src/ETL.py
 
 El script `ETL.py` permite:
 
+- Elegir en modo API o modo CSV para descargar el archivo.
 - Cargar los datasets `clientes.csv` y `alquileres.csv`.
-- Crea o carga `peliculas.csv`
+- Crea o carga `peliculas.csv`.
 - Validar y limpiar los datos.
 - Generar un dataset final listo para análisis.
 
