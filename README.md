@@ -103,8 +103,13 @@ El notebooks incluido permite:
 
 ## Posibles Mejoras Futuras
 
-- Conexión a una base de datos MySQL.
-- ( Pensando en posibles mejoras. )
+- **Conexión a una base de datos MySQL**.
+  
+- **Predicción de abandono (churn)**:
+  - Identificar clientes con riesgo de dejar de alquilar.
+- **Sistema de recomendación**:
+  - Recomendar películas personalizadas en función del comportamiento histórico.
+
 
 ---
 
